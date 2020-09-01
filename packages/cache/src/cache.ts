@@ -43,6 +43,10 @@ function checkKey(key: string): void {
   }
 }
 
+export async function helloWorld() {
+  console.log("hello world")
+}
+
 /**
  * Restores cache from keys
  *
