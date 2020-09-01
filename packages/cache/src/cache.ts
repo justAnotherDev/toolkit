@@ -43,6 +43,10 @@ function checkKey(key: string): void {
   }
 }
 
+export async function overwriteCache() {
+  console.log("hello world")
+}
+
 /**
  * Restores cache from keys
  *
