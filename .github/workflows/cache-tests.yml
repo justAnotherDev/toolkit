@@ -1,13 +1,6 @@
 name: cache-unit-tests
 on:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - '**.md'
-  pull_request:
-    paths-ignore:
-      - '**.md'
 
 jobs:
   build:
@@ -15,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        runs-on: [ubuntu-latest, windows-latest, macOS-latest]
+        runs-on: [ubuntu-latest]
       fail-fast: false
 
     runs-on: ${{ matrix.runs-on }}
