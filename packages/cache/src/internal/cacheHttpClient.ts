@@ -231,6 +231,7 @@ async function uploadFile(
     uploadOptions.overwrite
   )
 
+  console.log(`resourceURL: ${resourceUrl}`)
   const parallelUploads = [...new Array(concurrency).keys()]
   core.debug('Awaiting all uploads')
   let offset = 0
