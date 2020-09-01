@@ -198,7 +198,7 @@ async function uploadChunk(
     `uploadChunk (start: ${start}, end: ${end})`,
     async () =>
       httpClient.sendStream(
-        'PATCH',
+        'PUT',
         resourceUrl,
         openStream(),
         additionalHeaders
