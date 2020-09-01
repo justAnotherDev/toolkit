@@ -16,6 +16,12 @@ export interface UploadOptions {
    * @default 32MB
    */
   uploadChunkSize?: number
+  /**
+   * Overwrite cache if it exists already
+   *
+   * @default false
+   */
+   overwrite?: boolean
 }
 
 /**
@@ -56,7 +62,8 @@ export interface DownloadOptions {
 export function getUploadOptions(copy?: UploadOptions): UploadOptions {
   const result: UploadOptions = {
     uploadConcurrency: 4,
-    uploadChunkSize: 32 * 1024 * 1024
+    uploadChunkSize: 32 * 1024 * 1024,
+    overwrite: false
   }
 
   if (copy) {
@@ -67,10 +74,15 @@ export function getUploadOptions(copy?: UploadOptions): UploadOptions {
     if (typeof copy.uploadChunkSize === 'number') {
       result.uploadChunkSize = copy.uploadChunkSize
     }
+
+    if (typeof copy.overwrite === 'boolean') {
+      result.overwrite = copy.overwrite
+    }
   }
 
   core.debug(`Upload concurrency: ${result.uploadConcurrency}`)
   core.debug(`Upload chunk size: ${result.uploadChunkSize}`)
+  core.debug(`Overwrite: ${result.overwrite}`)
 
   return result
 }

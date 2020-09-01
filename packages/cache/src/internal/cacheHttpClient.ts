@@ -226,6 +226,10 @@ async function uploadFile(
     'uploadChunkSize',
     uploadOptions.uploadChunkSize
   )
+  const overwrite = utils.assertDefined(
+    'overwrite',
+    uploadOptions.overwrite
+  )
 
   const parallelUploads = [...new Array(concurrency).keys()]
   core.debug('Awaiting all uploads')
